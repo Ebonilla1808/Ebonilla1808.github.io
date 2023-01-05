@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: #fcf4e7;
+  font-family: 'Pangolin', cursive;
+  font-size: 1vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+  top: 0vmin;
+}
+
+.envelope {
+  position: relative;
+  background: #fa8703;
+  height: 30vmin;
+  width: 48vmin;
+}
+
+.card {
+  position: absolute;
+  background: white;
+  height: 25vmin;
+  width: 43vmin;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 2.5vmin;
+  top: 0vmin;
+  
+  animation: slide-rev 0.2s ease-out;
+}
+
+.message {
+  position: absolute;
+  top: 5vmin;
+}
+
+.pikachu {
+  position: absolute;
+  background: #f9ebaa;
+  height: 8vmin;
+  width: 10vmin;
+  border-radius: 40%;
+  top: 15vmin;
+  display: flex;
+}
+.pikachu::before {
+  content: '';
+  position: absolute;
+  background: #f9ebaa;
+  height: 6vmin;
+  width: 9vmin;
+  border-radius: 90% 90% 60% 60%;
+  top: -4vmin;
+  left: 0.5vmin;
+}
+.pikachu::after {
+  content: '';
+  position: absolute;
+  background: transparent;
+  height: 1vmin;
+  width: 1vmin;
+  top: 2vmin;
+  left: -1.5vmin;
+  color: #4a4947;
+  border-radius: 50%;
+  box-shadow:
+    4vmin -3.5vmin, 8vmin -3.5vmin,
+    2vmin -2vmin #fad598, 10vmin -2vmin #fad598,
+    3vmin 5vmin #f9ebaa, 9.3vmin 5vmin #f9ebaa;
+}
+
+.smile {
+  position: relative;
+  background: transparent;
+  height: 1vmin;
+  width: 1vmin;
+  border-radius: 50%;
+  border-bottom: 0.3vmin solid #4a4947;
+  left: -5vmin;
+  top: -1.3vmin;
+}
+
+.smile::before {
+  position: absolute;
+  content: '';
+  background: transparent;
+  height: 1vmin;
+  width: 1vmin;
+  border-radius: 50%;
+  border-bottom: 0.3vmin solid #4a4947;
+  left: 0.7vmin;
+}
+
+.limbs {
+  position: relative;
+  width: 0; 
+  height: 0; 
+  border-left: 1vmin solid transparent;
+  border-right: 1vmin solid transparent;  
+  border-bottom: 6vmin solid #f9ebaa;
+  border-radius: 80%;
+  top: -6vmin;
+  left: 1vmin;
+  transform: rotate(-20deg);
+}
+
+.limbs::before {
+  content: '';
+  position: absolute;
+  background: #f9ebaa;
+  width: 5vmin;
+  height: 2vmin;
+  border-radius: 40%;
+  top: 10vmin;
+  left: 4vmin;
+  box-shadow: 
+    -1vmin 1.5vmin #f9ebaa;
+}
+
+.limbs::after {
+  content: '';
+  position: absolute;
+  width: 0; 
+  height: 0; 
+  border-left: 1vmin solid transparent;
+  border-right: 1vmin solid transparent;  
+  border-bottom: 6vmin solid #f9ebaa;
+  border-radius: 80%;
+  top: 3vmin;
+  left: 5vmin;
+  transform: rotate(40deg);
+}
+
+.heart {
+  position: relative;
+  width: 5vmin;
+  height: 4vmin;
+  top: 2vmin;
+  left: 0.6vmin;
+}
+.heart:before,
+.heart:after {
+  position: absolute;
+  content: "";
+  left: 2.5vmin;
+  top: 0;
+  width: 2.5vmin;
+  height: 4vmin;
+  background: #fc978b;
+  border-radius: 2.5vmin 2.5vmin 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+.heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.arms {
+  position: relative;
+  background: #f9ebaa;
+  width: 4.2vmin; 
+  height: 2vmin; 
+  border-radius: 60% 60% 90% 60% / 50% 50% 90% 90%;
+  top: 3vmin;
+  left: -5vmin;
+}
+.arms::after {
+  content: '';
+  position: absolute;
+  background: #f9ebaa;
+  width: 4vmin; 
+  height: 2vmin; 
+  border-radius: 60% 60% 90% 60% / 50% 50% 90% 90%;
+  left: 5vmin;
+  top: 0vmin;
+}
+
+.cover {
+  position: absolute;
+  height: 0;
+  width: 0;
+  
+  border-bottom: 15vmin solid #f5b5bb;
+  border-left: 24vmin solid transparent;
+  border-right: 24vmin solid transparent;
+  top: 15vmin;
+  z-index: 3;
+}
+
+.cover::after { /*left triangle*/
+  position: absolute;
+  content: '';
+  border-left: 24.5vmin solid #ffbbc1;
+  border-bottom: 15vmin solid transparent;
+  border-top: 15vmin solid transparent;
+  top: -15vmin;
+  left: -24vmin;
+}
+
+.cover::before {
+  position: absolute;
+  content: '';
+  border-right: 24.5vmin solid #ffbbc1;
+  border-bottom: 15vmin solid transparent;
+  border-top: 15vmin solid transparent;
+  top: -15vmin;
+  left: -0.5vmin;
+}
+
+.lid {
+  position: absolute;
+  height: 0;
+  width: 0;
+  
+  border-top: 15vmin solid #ff8896;
+  border-left: 24vmin solid transparent;
+  border-right: 24vmin solid transparent;
+
+  top: 0;
+  transform-origin: top;
+  animation: open-rev 2s;
+}
+
+.container:hover .lid {
+  animation: open 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.container:hover .card {
+  animation: slide 0.2s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.shadow {
+  position: relative;
+  top: 3vmin;
+  border-radius: 50%; 
+  opacity: 0.7;
+  height: 2vmin;
+  width: 48vmin;
+  background: #e8c5d0;
+}
+
+@keyframes open {
+  100% {
+    transform: rotatex(180deg);
+  }
+}
+
+@keyframes slide {
+  100% {
+    transform: translatey(-15vmin);
+    z-index: 2;
+  }
+}
+
+@keyframes open-rev {
+  from {
+    transform: rotatex(-180deg);
+
+  }
+}
+
+@keyframes slide-rev {
+  from {
+    transform: translatey(-15vmin);
+  }
+}
+canvas {
+  
+   
+	position: absolute;
+ 
+  width: 100%;
+  height: 100%;
+}
+
+.Att{
+  font-style: italic;
+}
+    </style>
+</head>
+<body>
+    <canvas id="c"></canvas>
+    <div class="container">
+        <div class="envelope"></div>
+        <div class="card">
+          <h1 class="message">Holis Pequeña ♥ <br> Esta nota solo es para recordarte que te quiero mucho <br> <span class="Att">Att. Buddy </span></h1>
+          <div class="pikachu">
+            <div class="limbs"></div>
+            <div class="heart"></div>
+            <div class="arms"></div>
+            <div class="smile"></div>
+          </div>
+        </div>
+        <div class="cover"></div>
+        <div class="lid"></div>
+        <div class="shadow"></div>
+      </div>
+     
+
+      <Script>
+
+                var b = document.body;
+                var c = document.getElementsByTagName("canvas")[0];
+                var a = c.getContext("2d");
+                h = 400;
+                p = [];
+                j = 0;
+                k = 0;
+                u = 0;
+                m = Math;
+                q = function (e, b) {
+                return ~~(m.random() * (b - e + 1) + e);
+                };
+                d = "Infinity";
+                c.width = 400;
+                c.height = h;
+                document.bgColor = "#111";
+                c.style.background = "#000";
+                c.addEventListener("mousemove", function (e) {
+                j = m.floor(e.pageX - c.offsetLeft - 200);
+                k = m.floor(e.pageY - c.offsetTop - h / 2);
+                e = -(-k / -j);
+                u = m.floor(m.atan(e) * (180 / m.PI));
+                0 > j && 0 > k && (u += 180);
+                0 > j && 0 < k && (u += 180);
+                0 < j && 0 < k && (u += 360);
+                0 > k && e == "-" + d && (u = 90);
+                0 < k && e == d && (u = 270);
+                0 > j && "0" == e && (u = 180);
+                isNaN(u) && (u = 0);
+                });
+                setInterval(function () {
+                a.fillStyle = "rgba(0,0,0,.1)";
+                a.fillRect(0, 0, 400, h);
+                var e = p.length;
+                if (200 > e)
+                    for (var b = 200 - e; b--; )
+                    p.push({
+                        a: q(25, 350) / 100,
+                        x: 200,
+                        y: h / 2,
+                        d: q(0, 360),
+                        b: q(-75, 75) / 100,
+                        c: q(-40, 40)
+                    });
+                for (; e--; ) {
+                    b = p[e];
+                    a.beginPath();
+                    a.arc(b.x, b.y, b.a, 0, 2 * m.PI);
+                    a.moveTo(200, h / 2);
+                    a.lineTo(b.x, b.y);
+                    a.fillStyle = "hsl(" + (u + b.c) + ",100%,50%)";
+                    a.fill();
+                    a.strokeStyle = "hsla(" + (u + b.c) + ",100%,50%,.05)";
+                    a.stroke();
+                    b.a -= 0.02;
+                    var f = (b.d * m.PI) / 180,
+                    g = m.sin(f) * b.b;
+                    b.x += m.cos(f) * b.b + (j * b.a) / 175;
+                    b.y += g + (k * b.a) / 175;
+                    (b.y - b.a > h || b.y < -b.a || b.x > 400 + b.a || b.x < -b.a || 0 > b.a) &&
+                    p.splice(e, 1);
+                }
+                }, 5);
+
+      </Script>
+</body>
+</html>
