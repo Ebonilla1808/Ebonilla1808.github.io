@@ -1,0 +1,129 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-color: #fff;
+}
+
+.header{
+	background-color:#0C1737;
+}
+.menu{
+	padding: 10px 0;
+}
+.menu-logo a{
+	text-decoration: none;
+	color: white;
+	margin-top: 15px;
+	font-size: 12pt;
+	transition: 0.5s;
+}.menu-logo a:hover{
+	font-size: 14pt;
+	color: #E1E417;
+}
+
+.navbar{
+	text-align: right;
+	display: inline-block;
+	margin: auto;
+}
+.navbar a{
+	text-decoration: none;
+	color: white;
+	margin: 15px;
+	font-size: 12pt;
+	transition: 0.5s;
+}
+
+.navbar a:hover{
+	font-size: 14pt;
+	color: #E1E417;
+}
+
+main{
+	min-height: 80vh;
+	margin-bottom: 10px;
+}
+.card{
+	width: 100%;
+	transition: 0.5s;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	height: 100%;
+
+}
+.card-body{
+	height: 80%;
+	margin-bottom: 10px;
+}
+.card-links{
+	padding-top: 5px;
+	height: 20%;
+}
+.card:hover{
+	width: 101%;
+	background-color: #FCFCEE;
+}
+
+.well-lg{
+	margin-bottom: 10px;
+}
+
+
+
+.ejercicio{
+	width: 90%;
+}
+.solicitud{
+	
+	font-size: 20px;
+}
+.acciones{
+	margin: 25px;
+}
+.resultado{
+	width: 70%;
+	margin: auto;	
+	font-size: 22px;
+	font-weight: bold;
+
+}
+footer{
+	background-color: #0C1737;
+	color:  white;
+	min-height: 20vh;
+}
+footer p {
+	text-align: center;
+	padding-top: 60px;
+}
+
+.redes-icons{
+	display: flex;
+	width: 50%;
+	margin: auto;
+	padding-bottom: 60px;
+}
+.redes-icons a{
+	flex-grow: 1;
+	text-decoration: none;
+	font-size: 20px;
+	line-height: 60px;
+	text-align: center;
+	color: white;
+	transition: 0.5s;
+}
+
+.redes-icons a:hover{
+	font-size: 30px;
+	color: #E1E417;
+}
+
+
+
+@media (max-width: 575px) {
+	.navbar{
+		text-align: center;
+	}
+}
