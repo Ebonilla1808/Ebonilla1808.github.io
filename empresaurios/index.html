@@ -346,7 +346,7 @@ canvas {
                 document.bgColor = "#111";
                 c.style.background = "#000";
                 c.addEventListener("mousemove", function (e) {
-                j = m.floor(e.pageX - c.offsetLeft - 200);
+                j = m.floor(e.pageX - c.offsetLeft - screen.width/2);
                 k = m.floor(e.pageY - c.offsetTop - h / 2);
                 e = -(-k / -j);
                 u = m.floor(m.atan(e) * (180 / m.PI));
